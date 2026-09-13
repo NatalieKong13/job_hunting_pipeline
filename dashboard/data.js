@@ -1,5 +1,11 @@
 // 求职数据源 —— AI 找职位时写入 queue；处理完成后移到 applications。
 // Dashboard: http://127.0.0.1:8765/
+//
+// 字段说明:
+//   postedAt  — 职位发布时间 (YYYY-MM-DD)；未知则省略，UI 回退到 addedAt
+//   addedAt   — 加入 Queue 的日期
+//   roleType  — "new_grad" | "intern" | "full_time"
+//   bigTech   — 是否偏大厂/科技优先备注
 
 window.JOB_DATA = {
   updatedAt: "2026-09-13",
@@ -14,6 +20,10 @@ window.JOB_DATA = {
       notes:
         "来源: Indeed。New Grad · 毕业窗口 Dec 2026–June 2027（你 2027.04 匹配）。申请截止 Oct 6, 2026 23:59 ET。需 Cover Letter + Resume + Transcript。不提供 sponsorship（你有 PGWP 通常可投）。官方也可搜 Workday Campus。",
       addedAt: "2026-09-13",
+      postedAt: "2026-09-02",
+      roleType: "new_grad",
+      bigTech: false,
+      source: "Indeed",
     },
     {
       id: "q-002",
@@ -25,6 +35,9 @@ window.JOB_DATA = {
       notes:
         "来源: LinkedIn。偏 Big Tech，符合偏好。请打开 JD 确认毕业时间/工作授权/薪资后再决定是否处理。",
       addedAt: "2026-09-13",
+      roleType: "new_grad",
+      bigTech: true,
+      source: "LinkedIn",
     },
     {
       id: "q-003",
@@ -36,6 +49,10 @@ window.JOB_DATA = {
       notes:
         "来源: Indeed。Winter 2027 Co-op · Go/Node/AWS。要求 Bachelor Dec 2026 或之后。简历+非正式成绩单一份 PDF。评估截止曾写 Sep 7, 2026——投前确认是否仍开放。官方: capitalone.wd12.myworkdayjobs.com",
       addedAt: "2026-09-13",
+      postedAt: "2026-09-12",
+      roleType: "intern",
+      bigTech: false,
+      source: "Indeed",
     },
     {
       id: "q-004",
@@ -47,6 +64,9 @@ window.JOB_DATA = {
       notes:
         "来源: Indeed。Winter 2027 实习/Co-op。打开 JD 确认是否要求实习后继续在读、以及时薪是否 ≥ $25。",
       addedAt: "2026-09-13",
+      roleType: "intern",
+      bigTech: false,
+      source: "Indeed",
     },
     {
       id: "q-005",
@@ -58,6 +78,9 @@ window.JOB_DATA = {
       notes:
         "来源: Indeed。Big Tech。常见要求实习结束后仍有在读学期——你 2027.04 毕业，若只能做 Summer 2027 可能不匹配；若可选 Winter/Jan 2027 再认真看。投前务必读 JD 的 student status 条款。",
       addedAt: "2026-09-13",
+      roleType: "intern",
+      bigTech: true,
+      source: "Indeed",
     },
     {
       id: "q-006",
@@ -69,6 +92,9 @@ window.JOB_DATA = {
       notes:
         "来源: LinkedIn。New Grad / Early Career · 2027.05 或 2027.09 入职（毕业后）。打开 JD 确认专业与工作授权要求。",
       addedAt: "2026-09-13",
+      roleType: "new_grad",
+      bigTech: true,
+      source: "LinkedIn",
     },
     {
       id: "q-007",
@@ -80,6 +106,10 @@ window.JOB_DATA = {
       notes:
         "来源: 公开招聘页（Indeed/LinkedIn 也可搜同名）。New Grad · 前两年每周 4 天到办公室。不提供 sponsorship。Java/Python/TS/React 相关。建议同时在 LinkedIn/Indeed 搜官方申请入口。",
       addedAt: "2026-09-13",
+      postedAt: "2026-09-13",
+      roleType: "new_grad",
+      bigTech: false,
+      source: "BuiltIn",
     },
     {
       id: "q-008",
@@ -91,6 +121,10 @@ window.JOB_DATA = {
       notes:
         "来源: 官方 Ashby（LinkedIn 常同步）。毕业窗口 Dec 2026–June 2027。栈: Python/TS/React/GraphQL。",
       addedAt: "2026-09-13",
+      postedAt: "2026-08-25",
+      roleType: "new_grad",
+      bigTech: false,
+      source: "Ashby",
     },
     {
       id: "q-009",
@@ -102,6 +136,10 @@ window.JOB_DATA = {
       notes:
         "来源: RBC Early Talent（LinkedIn/Indeed 常有镜像）。AI/ML Co-op · PyTorch/TF 加分。申请截止约 Sep 20–21, 2026。Montreal 另有 4 个月岗位。",
       addedAt: "2026-09-13",
+      postedAt: "2026-08-17",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
     },
     {
       id: "q-010",
@@ -113,6 +151,10 @@ window.JOB_DATA = {
       notes:
         "来源: LinkedIn。2027 正式岗。请打开 JD 确认是否 New Grad / 经验年限与技术栈是否匹配。",
       addedAt: "2026-09-13",
+      postedAt: "2026-09-12",
+      roleType: "full_time",
+      bigTech: false,
+      source: "LinkedIn",
     },
     {
       id: "q-011",
@@ -124,6 +166,261 @@ window.JOB_DATA = {
       notes:
         "来源: Indeed。⚠️ JD 写毕业日期 Dec 2027 / 2028 / 2029——你是 2027.04，可能不符合，请人工确认后再处理。截止曾写 Sep 13, 2026。",
       addedAt: "2026-09-13",
+      postedAt: "2026-08-26",
+      roleType: "intern",
+      bigTech: false,
+      source: "Indeed",
+    },
+    {
+      id: "q-012",
+      company: "Manulife",
+      title: "Winter Co-op 2027 - Software Engineering (8 Months)",
+      location: "Toronto, ON (Hybrid)",
+      salary: "CAD $52,650–$70,200（年化，按学期折算）",
+      url: "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Toronto-Ontario/Winter-Co-op-2027---Software-Engineering--8-Months-_JR26081664",
+      notes:
+        "来源: Manulife Workday。8 个月 · 2027.01.05–08.19 · 周二至四到岗。Java/Python/Go/JS。需 PDF 合并简历+Cover Letter+成绩单。申请截止 2026-10-05。⚠️ 学期跨 2027.04 毕业，请与 McMaster Co-op 确认能否做满 8 个月。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-31",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-013",
+      company: "Zip",
+      title: "Software Engineer Intern (Winter 2027)",
+      location: "Toronto, ON (Hybrid)",
+      salary: "CAD $50–$52/h",
+      url: "https://jobs.ashbyhq.com/zip/2bc7327b-1c06-418a-beeb-bec1dd70480e",
+      notes:
+        "来源: 官方 Ashby（与 queue 中 Zip New Grad 不同岗）。2027.01 起 · 毕业窗口 2027.04–2028.06（你匹配）。栈: Python/TS/React/GraphQL。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-27",
+      roleType: "intern",
+      bigTech: false,
+      source: "Ashby",
+    },
+    {
+      id: "q-014",
+      company: "Cohere",
+      title: "Software Engineer Intern (Winter 2027)",
+      location: "Canada (Remote-friendly; Toronto office)",
+      salary: "未在列表页写明",
+      url: "https://jobs.ashbyhq.com/cohere/8c035d3d-081d-4c8a-914a-72f4efaad254",
+      notes:
+        "来源: 官方 Ashby。AI/NLP 公司 · 偏 AI/ML SWE。需在读且可全职 3–6 个月 co-op。Frontend/Backend/Full-stack/Infra 多 team 匹配。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-05-01",
+      roleType: "intern",
+      bigTech: false,
+      source: "Ashby",
+    },
+    {
+      id: "q-015",
+      company: "Wealthsimple",
+      title: "Software Development Intern (Winter 2027)",
+      location: "Toronto, ON (Hybrid)",
+      salary: "CAD $74,000–$90,000（年化，按实习 term 档位）",
+      url: "https://jobs.ashbyhq.com/wealthsimple/de09418a-8a12-46aa-a371-34bafaf5be26",
+      notes:
+        "来源: 官方 Ashby。4–8 个月 · 周三周四到岗。要求 ≥2 段 paid SWE 实习（你有 Ericsson 两段，符合）。不提供 immigration support（PGWP 可投）。⚠️ 申请截止 2026-09-18 23:59 ET。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-31",
+      roleType: "intern",
+      bigTech: false,
+      source: "Ashby",
+    },
+    {
+      id: "q-016",
+      company: "Geotab",
+      title: "Software Developer Intern (Winter/January 2027, 8 Months)",
+      location: "Toronto / Oakville, ON",
+      salary: "CAD $33–$39/h",
+      url: "https://job-boards.greenhouse.io/internshiplist2000/jobs/5350915008",
+      notes:
+        "来源: Geotab Campus（Greenhouse/Internship List）。8–12 个月 · 2027.01 起 · 内部平台/DevEx · C#/.NET、React、PostgreSQL、GCP。申请截止约 2026-12-02。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-09-02",
+      roleType: "intern",
+      bigTech: false,
+      source: "Greenhouse",
+    },
+    {
+      id: "q-017",
+      company: "Google",
+      title: "Software Developer, Early Career, Campus",
+      location: "Waterloo, ON / Montreal, QC",
+      salary: "CAD $126,000–$129,000 + 15% bonus + equity",
+      url: "https://www.google.com/about/careers/applications/jobs/results/120686451305128646-software-developer-early-career-campus",
+      notes:
+        "来源: Google Careers。Big Tech · New Grad / Early Career。申请窗口至少开放至 2026-09-30。Waterloo 或 Montreal 选址。不提供 sponsorship（PGWP 可投）。",
+      addedAt: "2026-09-13",
+      roleType: "new_grad",
+      bigTech: true,
+      source: "Google",
+    },
+    {
+      id: "q-018",
+      company: "Intact",
+      title: "Software Developer I - 4 Month Co-op/Internship (Winter 2027)",
+      location: "Toronto, ON",
+      salary: "CAD $61,500–$76,900（年化，35h/周）",
+      url: "https://intactfc.wd3.myworkdayjobs.com/en-US/intactfc/job/Toronto-Ontario-CAN/Software-Developer-I---4-Month-Co-op-Internship--Winter-2027-_R155112",
+      notes:
+        "来源: Intact Workday。2027.01–04 · Java/Spring Boot 加分 · Developer Platform 或 Claims 团队。需简历+成绩单。不提供 sponsorship。申请截止 2026-09-25。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-09-08",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-019",
+      company: "RBC",
+      title: "Technology & Operations - Software Developer (Winter 2027, 8 Months)",
+      location: "Toronto, ON",
+      salary: "未在列表页写明",
+      url: "https://rbc.wd3.myworkdayjobs.com/en-US/rbcearlytalent1/job/TORONTO-Ontario-Canada/XMLNAME-2027-Winter-Student-Opportunities-Technology---Operations---Software-Developer--8-Months_R-0000184557-2",
+      notes:
+        "来源: RBC Early Talent Workday（与 queue 中 Borealis ML 岗不同）。8 个月 · Full-stack/API/Web 等多 track。需能完成满 8 个月 co-op。申请截止 2026-09-20/21。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-17",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-020",
+      company: "Scotiabank",
+      title: "Velocity - Data Engineer Internship/Co-Op (Winter 2027)",
+      location: "Toronto, ON",
+      salary: "未在列表页写明",
+      url: "https://jobs.scotiabank.com/job/Toronto-Velocity-Data-Engineer-InternshipCo-Op-Winter-2027-ON/605881317/",
+      notes:
+        "来源: Scotiabank 官方。2027.01–04 · 4 个月 · Velocity 项目。Spark/Airflow/Python/GCP·Azure·AWS 数据管道。需 PLUM Profile + 视频面 + Codility。申请截止 2026-10-02。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-09-08",
+      roleType: "intern",
+      bigTech: false,
+      source: "Scotiabank",
+    },
+    {
+      id: "q-021",
+      company: "Scotiabank",
+      title: "Velocity - AI Engineer Internship/Co-Op (Winter 2027)",
+      location: "Toronto, ON",
+      salary: "未在列表页写明",
+      url: "https://www.internships.com/posting/velocity-ai-engineer-internship-co-op-winter-2027-scotiabank-1020214620",
+      notes:
+        "来源: Internships.com（镜像 JD；请在 jobs.scotiabank.com 搜同名官方入口）。AI/ML + 平台 · 生产级 AI 服务/API/监控 · Python/SQL/Databricks/GCP·Azure。2027.01–04。申请截止 2026-10-02。",
+      addedAt: "2026-09-13",
+      roleType: "intern",
+      bigTech: false,
+      source: "Internships.com",
+    },
+    {
+      id: "q-022",
+      company: "Scotiabank",
+      title: "Velocity - Cloud Engineer Internship/Co-Op (Winter 2027)",
+      location: "Toronto, ON",
+      salary: "未在列表页写明",
+      url: "https://emploive.com/jobs/3069792/velocity-cloud-engineer-internship-co-op-winter-2027-scotiabank",
+      notes:
+        "来源: Emploive（镜像 JD；请在 jobs.scotiabank.com 搜同名官方入口）。Backend/Platform · Terraform/Docker/K8s/GCP · 2027.01–04。需 PLUM + 视频面 + Codility。申请截止 2026-10-02。",
+      addedAt: "2026-09-13",
+      roleType: "intern",
+      bigTech: false,
+      source: "Emploive",
+    },
+    {
+      id: "q-023",
+      company: "Sun Life",
+      title: "Student, DevOps Engineer (Winter 2027)",
+      location: "Waterloo, ON",
+      salary: "未在列表页写明",
+      url: "https://sunlife.wd3.myworkdayjobs.com/en-US/Campus/job/Waterloo-Ontario/Student--DevOps-Engineer--Winter-2027-_JR00127059",
+      notes:
+        "来源: Sun Life Workday Campus。Platform/DevOps · Java/Spring Boot/Docker/K8s/Jenkins · AI 辅助开发加分。要求毕业日期 2027.04 或更晚（你匹配）。申请截止 2026-09-16。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-09-03",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-024",
+      company: "Sun Life",
+      title: "Student, Software Engineer (API) (Winter 2027)",
+      location: "Toronto / Waterloo, ON",
+      salary: "未在列表页写明",
+      url: "https://sunlife.wd3.myworkdayjobs.com/en-US/Campus/job/Toronto-Ontario/Student--Software-Engineer--API---Winter-2027-_JR00127410",
+      notes:
+        "来源: Sun Life Workday Campus。Backend/API · Java/C# · Spring Boot/.NET · Kafka/Docker/K8s。要求毕业 2027.04 或更晚。⚠️ 申请截止 2026-09-13（今天）。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-09-03",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-025",
+      company: "RBC Borealis",
+      title: "Software Developer (Winter 2027, 4–8 Months)",
+      location: "Toronto / Calgary, AB",
+      salary: "未在列表页写明",
+      url: "https://jobs.rbc.com/ca/en/job/RBCAA0088R0000184501EXTERNALENCA/2027-Winter-Student-Opportunities-RBC-Borealis-Software-Developer-4-8-Months",
+      notes:
+        "来源: RBC 官方 careers（与 queue 中 Borealis ML 岗不同）。Full-stack/Backend/Frontend/Data Eng 多 track。申请截止 2026-09-20/21。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-17",
+      roleType: "intern",
+      bigTech: false,
+      source: "RBC",
+    },
+    {
+      id: "q-026",
+      company: "RBC",
+      title: "Technology & Operations - Software Developer (Winter 2027, 4 Months)",
+      location: "Toronto, ON",
+      salary: "未在列表页写明",
+      url: "https://rbc.wd3.myworkdayjobs.com/en-US/rbcearlytalent1/job/TORONTO-Ontario-Canada/XMLNAME-2027-Winter-Student-Opportunities-Technology---Operations---Software-Developer--4-Months_R-0000184555-1",
+      notes:
+        "来源: RBC Early Talent Workday（与 queue 中 8 个月 T&O 岗不同）。4 个月 · Full-stack/API/Web 等 track。申请截止 2026-09-20/21。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-17",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
+    },
+    {
+      id: "q-027",
+      company: "NationGraph",
+      title: "Winter 2027 Software Engineering Intern",
+      location: "Toronto, ON (On-site)",
+      salary: "CAD $6,000–$8,000/月",
+      url: "https://jobs.ashbyhq.com/NationGraph/a1bcdd3e-d863-42b6-8469-ec587190ad68",
+      notes:
+        "来源: 官方 Ashby。AI/Full-stack · React/Next.js + Python/Go · LLM/API 经验加分。申请截止 2026-10-26。面试预计 10 月。",
+      addedAt: "2026-09-13",
+      roleType: "intern",
+      bigTech: false,
+      source: "Ashby",
+    },
+    {
+      id: "q-028",
+      company: "BMO",
+      title: "Software Developer, Winter 2027 (Co-op/Internship, 4 Months)",
+      location: "Toronto, ON",
+      salary: "CAD $61,600–$113,900（年化区间）",
+      url: "https://bmo.wd3.myworkdayjobs.com/en-US/privileged/job/Toronto-ON-CAN/Software-Developer--Winter-2027--Co-op-Internship----4-Months_R260024638-3",
+      notes:
+        "来源: BMO Workday（与 queue 中 Full Stack Capital Markets 岗不同）。通用 SWE · SDLC/微服务/云。需在读且实习后返校。申请截止 2026-09-20。",
+      addedAt: "2026-09-13",
+      postedAt: "2026-08-20",
+      roleType: "intern",
+      bigTech: false,
+      source: "Workday",
     },
   ],
   applications: [],

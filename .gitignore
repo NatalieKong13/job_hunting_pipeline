@@ -1,5 +1,12 @@
 .DS_Store
 .env
 .env.*
+!.env.example
 *.pem
 credentials.json
+.venv/
+__pycache__/
+*.pyc
+dashboard/jobs.db
+dashboard/jobs.db-*
+dashboard/__pycache__/
