@@ -10,3 +10,4 @@ __pycache__/
 dashboard/jobs.db
 dashboard/jobs.db-*
 dashboard/__pycache__/
+knowledge.md
